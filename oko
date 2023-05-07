@@ -1,0 +1,601 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Хост: 127.0.0.1
+-- Время создания: Май 04 2021 г., 15:37
+-- Версия сервера: 10.1.40-MariaDB
+-- Версия PHP: 7.3.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- База данных: `green`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `abouts`
+--
+
+CREATE TABLE `abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `text_az` longtext COLLATE utf8_unicode_ci,
+  `text_ru` longtext COLLATE utf8_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `abouts`
+--
+
+INSERT INTO `abouts` (`id`, `title_az`, `title_ru`, `text_az`, `text_ru`, `created_at`, `updated_at`) VALUES
+(1, 'GREEN SERVICE LTD', 'ГРИН СЕРВИС ЛТД', '<p>Azərbaycanda fəaliyyət g&ouml;stərən &ccedil;ox sahəli şirkətlərdən biri olaraq, &ldquo;Green Service LTD\" MMC &ouml;lkənin &ccedil;ox s&uuml;rətli inkişafına &ouml;z t&ouml;hvəsini verərək iqtisadiyyatın m&uuml;xtəlif sahələrində bir sıra əhəmiyyətli layihələr həyata ke&ccedil;irir. Bu g&uuml;n, Azərbaycanın nəhəng inşaat meydan&ccedil;asını xatırlatdığı bir d&ouml;vrdə, &ccedil;ox sahəli ixtisaslaşdırmaya malik olan &ldquo;Green Service LTD&rdquo; MMC &ouml;lkədə genişmiqyaslı tikinti işlərində bilavasitə iştirak edən ən b&ouml;y&uuml;k şirkətlərdən biridir. Azərbaycandan başqa, şirkət &ouml;lkə xaricində ke&ccedil;irilən inşaat və montaj işlərində fəal iştirak edir. Bu &ouml;lkələr sırasına Qazaxıstan, &Ouml;zbəkistan, G&uuml;rcistan, T&uuml;rkiyə aiddir.</p>\r\n<p>Layihələrin vaxtında və uğurlu təhvili &uuml;&ccedil;&uuml;n şirkət yeni texnologiyaları fəal tətbiq edir, Keyfiyyətin Menecmenti Sistemi &uuml;zrə ISO 9001:2015, ISO 14001:2015, ekoloji menecment sistemi &uuml;zrə ISO 14001:2004 və əməyin təhl&uuml;kəsizliyi və sağlamlığın qorunması &uuml;zrə OHSAS 18001:2007 standartlarının tələblərinə uyğunluğunun nəzarət və təhlilini apararaq işləri daima təkmilləşdirir.</p>\r\n<p>Bundan başqa, Green Service LTD &nbsp;aparıcı xarici şirkətlər &uuml;&ccedil;&uuml;n ləyaqətli rəqabət təşkil edir və eyni zamanda Azərbaycan xalqının yaşayış keyfiyyətini yaxşılaşdırmaq və &ouml;lkənin iqtisadi &ccedil;i&ccedil;əklənmə yolunda irəliləyişinə imkan yaratmaq &uuml;&ccedil;&uuml;n b&uuml;t&uuml;n səyləri ortaya qoyur və bundan sonra da Qafqazda ən yaxşı İnşaat korporasiyalarından birinin statusunu qorumağa hazırdır.</p>', '<p>Как одна из самых диверсифицированных компаний в Азербайджане, ГРИН СЕРВИС ЛТД реализует ряд важных проектов в различных секторах экономики, способствуя быстрому развитию страны. Сегодня, когда Азербайджан напоминает огромную строительную площадку, ООО &laquo;ГРИН СЕРВИС ЛТД&raquo; - одна из крупнейших компаний, непосредственно занимающихся масштабным строительством в стране, помимо Азербайджана, компания активно занимается строительно-монтажными работами за рубежом, в том числе в Казахстане, Узбекистане, Грузии и Турции.</p>\r\n<p>Для своевременной и успешной реализации проектов компания активно внедряет новые технологии, соблюдение качества стандартов ISO 9001: 2015, ISO 14001: 2015, системы экологического менеджмента ISO 14001: 2004 и стандартов OHSAS 18001: 2007 по охране труда и здоровья. И постоянно совершенствует свою работу путем проведения анализа.</p>\r\n<p>Кроме того, ГРИН СЕРВИС ЛТД обеспечивает достойную конкуренцию ведущим иностранным компаниям и в то же время прилагает все усилия для улучшения качества жизни азербайджанского народа и позволяет стране двигаться вперед по пути экономического процветания и готова поддерживать статус одной из лучших строительных корпораций Кавказа.</p>', '2021-01-23 20:00:00', '2021-01-28 12:22:55');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `file_id` int(11) DEFAULT NULL,
+  `title_az` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title_ru` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `text_az` text COLLATE utf8_unicode_ci NOT NULL,
+  `text_ru` text COLLATE utf8_unicode_ci NOT NULL,
+  `short_az` text COLLATE utf8_unicode_ci NOT NULL,
+  `short_ru` text COLLATE utf8_unicode_ci NOT NULL,
+  `seo_title_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_title_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_keywords_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_keywords_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_desctioption_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_desctioption_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `file_id`, `title_az`, `title_ru`, `text_az`, `text_ru`, `short_az`, `short_ru`, `seo_title_az`, `seo_title_ru`, `seo_keywords_az`, `seo_keywords_ru`, `seo_desctioption_az`, `seo_desctioption_ru`, `status`, `created_at`, `updated_at`) VALUES
+(4, 135, 'Yeni Füzuli-Şuşa avtomobil yolunun tikintisi davam etdirilir', 'Ведется строительство новой трассы Физули-Шуша', '<p>Yeni layihəyə əsasən, &ccedil;ətin relyefə malik olan ərazilərdə, dolaylarda inşa ediləcək k&ouml;rp&uuml; və tunellər hesabına yolun uzunluğu 84.6 km təşkil edəcək. İnşa ediləcək tunellərin &uuml;mumi uzunluğu təqribən 3 km olacaq. Bundan başqa yeni trassa &uuml;zrə m&uuml;xtəlif səviyyəli yol qovşaqlarının inşası da nəzərdə tutulur.</p>\r\n<p>Yeni F&uuml;zuli-Şuşa avtomobil yolu 4 və 6 hərəkət zolaqlı olmaqla iri yaşayış məntəqələrindən, həm&ccedil;inin məşhur Topxana meşəliyindən yan ke&ccedil;məklə inşa edilir. Yolun ilk 48 km-i 6, 48-84.6 km-i isə 4 hərəkət zolağından&nbsp;ibarət olacaq. M&uuml;vafiq olaraq yol yatağının eni 29.5 və 21.5 metr təşkil edəcək.</p>\r\n<p>Yeni trassa &uuml;zrə hazırlanan layihəyə Şuşanın məşhur&nbsp;İsa Bulağınadək əlavə 2 km-lik II texniki dərəcəli yolun inşa edilməsi də daxil edilib. 2 hərəkət zolaqlı olacaq İsa Bulağı yolu başlanğıcını yeni F&uuml;zuli-Şuşa avtomobil yolunun təqribən 82-ci km-dən g&ouml;t&uuml;rəcək və La&ccedil;ın-Şuşa-Xankəndi avtomobil yolunu uzunluğu 900 metr olan tunel vasitəsi ilə ke&ccedil;məklə inşa ediləcək.</p>\r\n<p>Bundan başqa F&uuml;zuli-Şuşa avtomobil yolu inşasına start verilən yeni&nbsp;F&uuml;zuli Hava Limanı&nbsp;yaxınlığından ke&ccedil;ir. Bu səbəbdən magistral yolu hava limanı ilə əlaqələndirmək məqsədi ilə&nbsp;27-ci km-də&nbsp;yol qovşağının və aerovağzala giriş yolunun inşası da layihə &uuml;zrə nəzərdə tutulur.</p>\r\n<p>Yeni F&uuml;zuli-Şuşa&nbsp;avtomobil yolunun inşası 4 hissə &uuml;zrə aparılır. Bu Azərbaycan Avtomobil Yolları D&ouml;vlət Agentliyinin iki tabeli təşkilatı tərəfindən tikintisi aparılan 0-17 və 17-34-c&uuml; km-lik hissələri, &ldquo;AZVİRT&rdquo; MMC-in inşa etdiyi 34-51-ci km-lik hissə və T&uuml;rkiyənin &ldquo;Kolin İnşaat&rdquo; şirkəti tərəfindən inşası aparılan 51-84.6 km-lik hissəsidir.</p>\r\n<p>Hazırda yolun 0-3, 34-37 və 51-53-ci km-lik hissələrində torpaq yatağının inşası işləri yekunlaşdırılıb və n&ouml;vbəti kilometrlik ərazilərdə bu istiqamətdə işlər davam etdirilir.</p>\r\n<p>Başlanğıcını M6 Hacıqabul-Bəhrəmtəpə-Mincivan-Ermənistan Respublikası ilə d&ouml;vlət sərhədi avtomobil yolundan g&ouml;t&uuml;rməklə işğaldan azad edilmiş F&uuml;zuli, Xocavənd, Xocalı və Şuşa rayonlarının ərazisindən ke&ccedil;ən yeni F&uuml;zuli-Şuşa magistral avtomobil yolunun inşasının 2022-ci il ərzində tamamlanması nəzərdə tutulur.&nbsp;&nbsp;</p>\r\n<p>Şuşanın d&uuml;şməndən azad olunmasının mənəvi rəmzi olan və 101 km uzunluğa malik &ldquo;Zəfər Yolu&rdquo;nun d&ouml;vlət baş&ccedil;ısının tapşırığına əsasən, genişləndirilərək II texniki dərəcəyə uyğun inşası da davam etdirilir.</p>\r\n<p>Artıq &ldquo;Zəfər yolu&rdquo;&nbsp;boyunca tikinti işlərinin birinci mərhələsi yekunlaşdırılıb. Cəmi 2 ay ərzində s&ouml;z&uuml;gedən yol genişləndirilib, yeni torpaq yatağı inşa edilib və s&ouml;z&uuml;gedən yol ilə gediş-gəliş təmin olunub.</p>\r\n<p>&ldquo;Zəfər yolu&rdquo;nun Əhmədbəyli-B&ouml;y&uuml;k Tağlar yaşayış məntəqələri arasında yerləşən hissəsində tikinti ərazisinə cəlb olunmuş x&uuml;susi texnikaların &ccedil;evik hərəkətinin təmin olunması məqsədi ilə yol &ccedil;iyinlərinin minalardan və partlamamış hərbi sursatlardan təmizlənməsinin s&uuml;r&uuml;tləndirilməsi ilə yolun asfalt-beton &ouml;rt&uuml;y&uuml; ilə d&ouml;şənməsi &uuml;&ccedil;&uuml;n hazır vəziyyətə gətirilməsi nəzərdə tutulur. S&ouml;z&uuml;gedən prosesin həyata ke&ccedil;irilməsi ilə cari ilin sentyabr ayınadək yolun tam olaraq 2 hərəkət zolağı enində asfaltlanaraq istifadəyə verilməsi planlaşdırılır.</p>\r\n<p><strong>B&Uuml;T&Uuml;N YOLLAR QARABAĞA APARIR...</strong></p>', '<p id=\"tw-target-text\" class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">Согласно новому проекту, протяженность дороги составит 84,6 км за счет строительства непрямых мостов и туннелей в районах со сложным рельефом. Общая протяженность строящихся тоннелей составит около 3 км. Кроме того, на новом маршруте планируется построить дорожные развязки разного уровня. </span></p>\r\n<p class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">Новая 4-х и 6-ти полосная трасса Физули-Шуша строится в обход крупных населенных пунктов, а также знаменитого леса Топхана. Первые 48 км дороги будут состоять из 6 полос движения и 48&ndash;84,6 км из 4 полос. Ширина дорожного полотна составит 29,5 и 21,5 метра соответственно.</span></p>\r\n<div id=\"tw-target-text-container\" class=\"tw-ta-container hide-focus-ring tw-nfl\" tabindex=\"0\">\r\n<p id=\"tw-target-text\" class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">Проект по новому маршруту включает строительство дополнительных 2 км дороги технической категории II до знаменитого Иса Булаг в Шуше. Двухполосная дорога Иса Булаги начнется примерно на 82 км новой трассы Физули-Шуша и будет построена путем пересечения трассы Лачин-Шуша-Ханкенди через туннель протяженностью 900 метров. Кроме того, трасса Физули-Шуша проходит недалеко от нового аэропорта Физули, строительство которого уже началось. По этой причине проектом предусмотрено строительство транспортной развязки и подъездной дороги к аэропорту на 27-м км, чтобы соединить трассу с аэропортом.</span></p>\r\n<p id=\"tw-target-text\" class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">Строительство новой трассы Физули-Шуша ведется в четыре этапа. Это участки 0-17 и 17-34 км, построенные двумя подведомственными организациями Государственного агентства автомобильных дорог Азербайджана, участок 34-51 км, построенный ООО AZVIRT и турецкой компанией Kolin Inshaat.входит в состав 51-84,6. км построено В настоящее время завершено устройство слоя грунта на участках дороги 0-3, 34-37 и 51-53 км, на следующем километре ведутся работы. </span></p>\r\n<p class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">Строительство новой автомобильной дороги Физули-Шуша, проходящей через освобожденные Физулинский, Ходжавендский, Ходжалинский и Шушинский районы, начиная с автомобильной дороги М6 Гаджигабул-Бахрамтапа-Миндживан-государственная граница Армении, планируется завершить в 2022 году. Согласно распоряжению Президента, &laquo;Дорога Победы&raquo; протяженностью 101 км, являющаяся моральным символом освобождения Шуши от врага, расширяется и строится в соответствии со II техническим уровнем. Первый этап строительных работ по &laquo;Дороге Победы&raquo; уже завершен. Всего за два месяца дорогу расширили, построили новое поле и обеспечили движение транспорта. Для обеспечения быстрого движения спецтехники, задействованной на строительной площадке на участке &laquo;Дороги Победы&raquo; между поселками Ахмадбейли и Беюк Таглар, планируется ускорить обезвреживание мин и неразорвавшихся боеприпасов для обустройства дороги. готов к асфальтобетонному покрытию. С внедрением этого процесса к сентябрю этого года планируется проложить дорогу в 2 полосы шириной. </span></p>\r\n<p class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">ВСЕ ДОРОГИ ВЕДУТ В КАРАБАХ ...</span></p>\r\n</div>\r\n<div id=\"tw-target-rmn-container\" class=\"tw-ta-container hide-focus-ring tw-nfl\"></div>', 'Prezident İlham Əliyevin yanvarın 14-də Füzuli rayonuna səfəri zamanı təməli qoyulan və Füzuli rayonundan başlayaraq Şuşa şəhərinə qədər uzanan I texniki dərəcəli magistral avtomobil yolunun tikintisi', 'Продолжается строительство первой автомобильной дороги технической категории, проложенной во время визита президента Ильхама Алиева в Физули 14 января и идущей от Физули до Шуши', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-02-18 07:24:41', '2021-02-18 07:24:41'),
+(5, 136, 'Xocavənddə 400-ə yaxın partlayıcı zərərsizləşdirilib', 'Около 400 взрывоопасных предметов обезврежено в Ходжавендском районе', '<p>Rusiya s&uuml;lhməramlı kontingentinin humanitar mina təmizləmə b&ouml;l&uuml;y&uuml;n&uuml;n şəxsi heyəti Xocavənd rayonunun Qırmızı Bazar yaşayış məntəqəsi b&ouml;lgəsində ərazinin partlayıcı predmetlərdən təmizləməsi &uuml;&ccedil;&uuml;n işlər g&ouml;r&uuml;b.</p>\r\n<p>Bu barədə Rusiyanın M&uuml;dafiə Nazirliyi məlumat yayıb.</p>\r\n<div id=\"AdviadNativeVideo0\" class=\"AdviadNativeVideo\"></div>\r\n<p>Minalardan təmizlənmə zamanı Rusiya istehkam&ccedil;ıları 122 millimetrlik qəlpəli-fuqaslı top mərmiləri və kumulyativ tank d&ouml;y&uuml;ş sursatı da daxil olmaqla 400-ə yaxın partlayıcı predmeti zərərsizləşdirib.</p>\r\n<p>M&uuml;əyyən edilmiş silah-sursat x&uuml;susi təchizatlı Ballıca poliqonuna aparılaraq məhv edilib.&nbsp;Təxliyəsi m&uuml;mk&uuml;n olmayan d&ouml;y&uuml;ş sursatları partlayış işlərinin aparılması zamanı zəruri olan b&uuml;t&uuml;n təhl&uuml;kəsizlik tədbirlərinin təmin edilməsi ilə yerindəcə məhv edilib.</p>\r\n<p>&Uuml;mumilikdə&nbsp;23 noyabr 2020-ci ildən bu yana 1 419 hektar ərazi, 443 km yol, 30 sosial əhəmiyyətli obyekt daxil olmaqla 1 361 bina partlamamış hərbi sursatlardan təmizlənib, 24 453 partlayıcı predmet aşkar edilərək zərərsizləşdirilib.</p>', '<p>Личным составом роты гуманитарного разминирования российского миротворческого контингента выполнены работы по очистке местности от взрывоопасных предметов в районе населенного пункта Красный Базар Ходжавендского района.</p>\r\n<p>Об этом сообщается на сайте Минобороны РФ.</p>\r\n<p>В ходе разминирования российскими саперами были обезврежены около 400 взрывоопасных предметов, среди которых 122-мм осколочно-фугасные артиллерийские снаряды и кумулятивные танковые боеприпасы.</p>\r\n<p>Обнаруженные взрывоопасные предметы вывезены и уничтожены на специально оборудованном полигоне Баллыджа. Боеприпасы, которые невозможно эвакуировать, уничтожались на месте с обеспечением всех необходимых мер безопасности.</p>\r\n<p>Всего с 23 ноября 2020 г. от неразорвавшихся боеприпасов очищено 1 419 га территории, 443 км дорог, 1 361 домостроение, в том числе 30 социально значимых объектов, обнаружено и обезврежено 24 453 взрывоопасных предмета.</p>', 'Rusiya sülhməramlı kontingentinin humanitar mina təmizləmə bölüyünün şəxsi heyəti Xocavənd rayonunun Qırmızı Bazar yaşayış məntəqəsi bölgəsində ərazinin partlayıcı predmetlərdən təmizləməsi üçün işlər', 'Личным составом роты гуманитарного разминирования российского миротворческого контингента выполнены работы по очистке местности от взрывоопасных предметов в районе населенного пункта Красный Базар Ход', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-02-18 07:40:52', '2021-02-18 07:40:52'),
+(6, 137, 'Azərbaycan Salyan-Biləsuvar yolu üçün böyük məbləğdə borc alacaq', 'Азербайджан займёт крупную сумму на дорогу Сальян-Билясувар', '<p>&Uuml;mmui dəyəri 95,8 milyon ABŞ dolları olan layihənin məqsədi Salyan-Biləsuvar yolu boyu təhl&uuml;kəsiz, səmərəli, iqlim dəyişkənliyinə qarşı dayanıqlı hərəkəti təmin etməkdir.</p>\r\n<p>Layihə d&ouml;rd komponentdən ibarətdir. &ldquo;Nəqliyyat hərəkəti&rdquo; adlı birinci komponentin dəyəri 59,24 milyon ABŞ dollarıdır, əsas alt komponent (55,63 milyon dollar) adı&ccedil;əkilən yolun 31,9-103,3 kilometrləri arasında bəzi hissələrinin ikinci dərəcə səviyyəsində bərpasını nəzərdə tutur.</p>\r\n<p>2 milyon dollar dəyərində &ldquo;Yol sektorunun dayanıqlılığı&rdquo; adlı ikinci komponent intellektual nəqliyyat sistemlərinin tətbiqilə yol idarə&ccedil;iliyinin təkmilləşdirilməsini, yoldan istifadə etmə haqqının elektron formatda &ouml;dənişi &uuml;&ccedil;&uuml;n m&uuml;vafiq infrastrukturun qurulmasına texniki yardım g&ouml;stərilməsini nəzərdə tutur.</p>\r\n<p>&ldquo;Yerli inkişaf və logistika&rdquo; adlı &uuml;&ccedil;&uuml;nc&uuml; komponentin başlıca tərkib hissəsi yolboyu logistika və bazar obyektlərinin inkişaf etdirilməsini, bunun &uuml;&ccedil;&uuml;n ki&ccedil;ik sərmayələr yatırılması &uuml;&ccedil;&uuml;n pilot layihələrinin tətbiqini əhatə edir.</p>\r\n<p>D&ouml;rd&uuml;nc&uuml; komponent də layihənin idarəetmə məsələlərini əhatə edir.</p>', '<p id=\"tw-target-text\" class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">Проект стоимостью 95,8 миллиона долларов направлен на обеспечение безопасного, эффективного и устойчивого движения по дороге Сальян-Билясувар. Проект состоит из четырех компонентов. Стоимость первого компонента, озаглавленного &laquo;Движение&raquo;, составляет 59,24 миллиона долларов, основной подкомпонент (55,63 миллиона долларов) предусматривает восстановление некоторых участков дороги на второстепенном уровне между 31,9-103,3 км. </span></p>\r\n<p class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">Второй компонент, озаглавленный &laquo;Устойчивость дорожного сектора&raquo; стоимостью 2 миллиона долларов, предусматривает улучшение управления дорогами за счет использования интеллектуальных транспортных систем, техническую помощь в строительстве соответствующей инфраструктуры для электронных платежей за пользование дорогами. </span></p>\r\n<p class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">Главный компонент третьего компонента, Местное развитие и логистика, охватывает развитие придорожной логистики и рыночных объектов, включая внедрение пилотных проектов для небольших инвестиций. </span></p>\r\n<p class=\"tw-data-text tw-text-large XcVN5d tw-ta\" dir=\"ltr\" data-placeholder=\"&Ccedil;eviri\"><span lang=\"ru\">Четвертый компонент также охватывает вопросы управления проектами.</span></p>', 'Dünya Bankı Direktorlar Şurası mayın 25-də Azərbaycanda “Məhəlli bağlantılarının inkişafı” adlı yeni yol layihəsi üçün 65 milyon ABŞ dolları məbləğində kredit ayıracaq', 'Совет директоров Всемирного банка 25 мая предоставит заем в размере 65 миллионов долларов для нового дорожного проекта под названием «Развитие местных связей» в Азербайджане', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-02-18 07:52:42', '2021-02-18 07:52:42');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `address_az` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address_ru` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `telefon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `mobil` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `linkedin` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `facebook` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `instagram` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `youtube` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `address_az`, `address_ru`, `telefon`, `mobil`, `email`, `linkedin`, `facebook`, `instagram`, `youtube`, `created_at`, `updated_at`) VALUES
+(1, 'Məmməd Araz 43', 'Мамед Араз 43', '+99412 511 23 44', '+99451 694 23 44', 'info@greenserviceltd.az', 'https://www.linkedin.com/', 'https://www.facebook.com/', 'https://www.instagram.com/', 'https://www.youtube.com/', '2021-01-11 20:00:00', '2021-01-28 14:13:55');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `files`
+--
+
+CREATE TABLE `files` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `file` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `assign` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `category_id` int(11) DEFAULT NULL,
+  `project_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `files`
+--
+
+INSERT INTO `files` (`id`, `file`, `assign`, `status`, `category_id`, `project_id`, `created_at`, `updated_at`) VALUES
+(4, '1610404961w1.png', 'parthner', 1, NULL, NULL, '2021-01-11 18:42:41', '2021-01-11 18:42:41'),
+(5, '1610404969w2.png', 'parthner', 1, NULL, NULL, '2021-01-11 18:42:49', '2021-01-11 18:42:49'),
+(6, '1610404974w3.png', 'parthner', 1, NULL, NULL, '2021-01-11 18:42:54', '2021-01-11 18:42:54'),
+(7, '1610404981w4.png', 'parthner', 1, NULL, NULL, '2021-01-11 18:43:01', '2021-01-11 18:43:01'),
+(8, '1610404986w5.png', 'parthner', 1, NULL, NULL, '2021-01-11 18:43:06', '2021-01-11 18:43:06'),
+(9, '1610404992w6.png', 'parthner', 1, NULL, NULL, '2021-01-11 18:43:12', '2021-01-11 18:43:12'),
+(13, '1610408293pic1.jpg', 'gallery', 1, 4, NULL, '2021-01-11 19:38:13', '2021-01-24 07:49:53'),
+(14, '1610408307pic3.jpg', 'gallery', 1, 4, NULL, '2021-01-11 19:38:27', '2021-01-11 19:38:27'),
+(15, '1610408313pic4.jpg', 'gallery', 1, 3, NULL, '2021-01-11 19:38:33', '2021-01-11 19:38:33'),
+(16, '1610408320pic3 (1).jpg', 'gallery', 1, 2, NULL, '2021-01-11 19:38:40', '2021-01-11 19:38:40'),
+(17, '1610408329pic6.jpg', 'gallery', 1, 1, NULL, '2021-01-11 19:38:49', '2021-01-11 19:38:49'),
+(18, '1610408341pic5.jpg', 'gallery', 1, 4, NULL, '2021-01-11 19:39:01', '2021-01-11 19:39:01'),
+(19, '1610408350pic7.jpg', 'gallery', 1, 2, NULL, '2021-01-11 19:39:10', '2021-01-11 19:39:10'),
+(20, '1610408356pic9.jpg', 'gallery', 1, 2, NULL, '2021-01-11 19:39:16', '2021-01-11 19:39:16'),
+(22, '1610408511pic8.jpg', 'gallery', 1, 1, NULL, '2021-01-11 19:41:51', '2021-01-11 19:41:51'),
+(23, '1610408525pic7.jpg', 'gallery', 1, 3, NULL, '2021-01-11 19:42:05', '2021-01-11 19:45:11'),
+(24, '1610489828thum1.jpg', 'services', 1, NULL, NULL, '2021-01-12 18:17:08', '2021-01-12 18:17:08'),
+(80, '116112748264.jpg', 'project-photo', 1, NULL, 9, '2021-01-21 20:20:26', '2021-01-21 20:20:26'),
+(81, '21611274826pic5.jpg', 'project-photo', 1, NULL, 9, '2021-01-21 20:20:26', '2021-01-21 20:20:26'),
+(82, '31611274826pic6.jpg', 'project-photo', 1, NULL, 9, '2021-01-21 20:20:26', '2021-01-21 20:20:26'),
+(83, '41611274826pic1.jpg', 'project-photo', 1, NULL, 9, '2021-01-21 20:20:26', '2021-01-21 20:20:26'),
+(84, '51611274826pic3.jpg', 'project-photo', 1, NULL, 9, '2021-01-21 20:20:26', '2021-01-21 20:20:26'),
+(85, '11611274826mektub_formasi.docx', 'project-doc', 1, NULL, 9, '2021-01-21 20:20:26', '2021-01-21 20:20:26'),
+(86, '21611274826Haqqimizda.docx', 'project-doc', 1, NULL, 9, '2021-01-21 20:20:26', '2021-01-21 20:20:26'),
+(87, '11611274934pic1.jpg', 'project-photo', 1, NULL, 10, '2021-01-21 20:22:14', '2021-01-21 20:22:14'),
+(88, '216112749344.jpg', 'project-photo', 1, NULL, 10, '2021-01-21 20:22:14', '2021-01-21 20:22:14'),
+(89, '31611274934pic2.jpg', 'project-photo', 1, NULL, 10, '2021-01-21 20:22:14', '2021-01-21 20:22:14'),
+(90, '41611274934pic3.jpg', 'project-photo', 1, NULL, 10, '2021-01-21 20:22:14', '2021-01-21 20:22:14'),
+(91, '11611274934mektub_formasi.docx', 'project-doc', 1, NULL, 10, '2021-01-21 20:22:14', '2021-01-21 20:22:14'),
+(92, '21611274934Haqqimizda.docx', 'project-doc', 1, NULL, 10, '2021-01-21 20:22:14', '2021-01-21 20:22:14'),
+(93, '11611274993pic2.jpg', 'project-photo', 1, NULL, 11, '2021-01-21 20:23:13', '2021-01-21 20:23:13'),
+(94, '21611274993pic7.jpg', 'project-photo', 1, NULL, 11, '2021-01-21 20:23:13', '2021-01-21 20:23:13'),
+(95, '31611274993pic1.jpg', 'project-photo', 1, NULL, 11, '2021-01-21 20:23:13', '2021-01-21 20:23:13'),
+(96, '416112749934.jpg', 'project-photo', 1, NULL, 11, '2021-01-21 20:23:13', '2021-01-21 20:23:13'),
+(97, '51611274993pic5.jpg', 'project-photo', 1, NULL, 11, '2021-01-21 20:23:13', '2021-01-21 20:23:13'),
+(98, '11611274993Haqqimizda.docx', 'project-doc', 1, NULL, 11, '2021-01-21 20:23:13', '2021-01-21 20:23:13'),
+(99, '21611274993mektub_formasi.docx', 'project-doc', 1, NULL, 11, '2021-01-21 20:23:13', '2021-01-21 20:23:13'),
+(100, '11611275055pic5.jpg', 'project-photo', 1, NULL, 12, '2021-01-21 20:24:15', '2021-01-21 20:24:15'),
+(101, '216112750554.jpg', 'project-photo', 1, NULL, 12, '2021-01-21 20:24:15', '2021-01-21 20:24:15'),
+(102, '31611275055pic7.jpg', 'project-photo', 1, NULL, 12, '2021-01-21 20:24:15', '2021-01-21 20:24:15'),
+(103, '11611275055mektub_formasi.docx', 'project-doc', 1, NULL, 12, '2021-01-21 20:24:15', '2021-01-21 20:24:15'),
+(109, '161182010051593.jpg', 'services', 1, NULL, NULL, '2021-01-28 12:48:20', '2021-01-28 12:48:20'),
+(110, '161182075851594.jpeg', 'services', 1, NULL, NULL, '2021-01-28 12:59:18', '2021-01-28 12:59:18'),
+(112, '1611822337spectehnika.jpg', 'services', 1, NULL, NULL, '2021-01-28 13:25:37', '2021-01-28 13:25:37'),
+(113, '1611823479Orangerie.jpg', 'services', 1, NULL, NULL, '2021-01-28 13:44:39', '2021-01-28 13:44:39'),
+(114, '16118250972010s dayton Gabrielli Kenworth Grand Opening444 (44).jpeg', 'services', 1, NULL, NULL, '2021-01-28 14:11:37', '2021-01-28 14:11:37'),
+(115, '1613371227toyota-prius-2009-jtdkb20u297880754-img2.jpg', 'parthner', 1, NULL, NULL, '2021-02-15 06:40:27', '2021-02-15 06:40:27'),
+(120, '1613375955aayda.png', 'parthner', 1, NULL, NULL, '2021-02-15 07:59:15', '2021-02-15 07:59:15'),
+(121, '1613376370ady.png', 'parthner', 1, NULL, NULL, '2021-02-15 08:06:10', '2021-02-15 08:06:10'),
+(122, '1613376592MİDA.jpg', 'parthner', 1, NULL, NULL, '2021-02-15 08:09:52', '2021-02-15 08:09:52'),
+(129, '1613458530AZERENERJI.jpg', 'parthner', 1, NULL, NULL, '2021-02-16 06:55:30', '2021-02-16 06:55:30'),
+(130, '1613458657MIDA.jpg', 'parthner', 1, NULL, NULL, '2021-02-16 06:57:37', '2021-02-16 06:57:37'),
+(131, '1613458886EKOLOGİYA.png', 'parthner', 1, NULL, NULL, '2021-02-16 07:01:26', '2021-02-16 07:01:26'),
+(132, '1613459207Iqtisadi.png', 'parthner', 1, NULL, NULL, '2021-02-16 07:06:47', '2021-02-16 07:06:47'),
+(133, '1613459735ETSN.jpg', 'parthner', 1, NULL, NULL, '2021-02-16 07:15:35', '2021-02-16 07:15:35'),
+(135, '161363308116124365513.jpg', 'blog', 1, NULL, NULL, '2021-02-18 07:24:41', '2021-02-18 07:24:41'),
+(136, '1613634052Screenshot 2021-02-18 102656.jpg', 'blog', 1, NULL, NULL, '2021-02-18 07:40:52', '2021-02-18 07:40:52'),
+(137, '1613634762salyan-yolu.jpg', 'blog', 1, NULL, NULL, '2021-02-18 07:52:42', '2021-02-18 07:52:42'),
+(138, '1613635032kbt-korpu.png', 'parthner', 1, NULL, NULL, '2021-02-18 07:57:12', '2021-02-18 07:57:12');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `gallery_categories`
+--
+
+CREATE TABLE `gallery_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name_az` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name_ru` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `gallery_categories`
+--
+
+INSERT INTO `gallery_categories` (`id`, `name_az`, `name_ru`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Tikinti-Quraşdırma', 'Строительство', 1, '2021-01-11 19:33:30', '2021-01-11 19:33:30'),
+(2, 'Yaşıllaşdırma və landşaft', 'Озеленение и ландшафт', 1, '2021-01-11 19:34:14', '2021-01-11 19:34:14'),
+(3, 'Yol tikintisi və təmiri', 'Строительство дорог и ремонт', 1, '2021-01-11 19:34:55', '2021-01-11 19:34:55'),
+(4, 'Tikinti texnikalarının icarəsi', 'Аренда строительной техники', 1, '2021-01-11 19:35:17', '2021-01-11 19:35:17'),
+(5, 'Texniki servis', 'Техническое обслуживание', 1, '2021-01-11 19:35:30', '2021-01-11 19:35:52');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_02_17_085827_create_partners_table', 1),
+(4, '2020_06_24_212826_create_roles_table', 1),
+(5, '2020_06_25_100007_create_files_table', 1),
+(6, '2020_06_25_234023_create_abouts_table', 1),
+(7, '2020_06_27_133808_create_contacts_table', 1),
+(8, '2020_07_24_105015_create_sliders_table', 1),
+(9, '2020_07_29_222012_create_gallery_categories_table', 1),
+(10, '2020_08_17_215327_create_blogs_table', 1),
+(13, '2021_01_12_001204_create_services_table', 2),
+(15, '2021_01_12_220405_create_projects_table', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `partners`
+--
+
+CREATE TABLE `partners` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `file_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `partners`
+--
+
+INSERT INTO `partners` (`id`, `name`, `file_id`, `link`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'İQTİSADİ', '132', NULL, 1, '2021-01-11 18:42:41', '2021-02-16 07:06:47'),
+(2, 'EKOLOGİYA', '133', NULL, 1, '2021-01-11 18:42:49', '2021-02-16 07:15:35'),
+(3, 'AZERENERJI', '129', NULL, 1, '2021-01-11 18:42:54', '2021-02-16 06:55:30'),
+(4, 'MİDA', '138', NULL, 1, '2021-01-11 18:43:01', '2021-02-18 07:57:12'),
+(5, 'ADY', '121', NULL, 1, '2021-01-11 18:43:06', '2021-02-15 08:06:10'),
+(6, 'Azərbaycan Avtomobil Yolları Dövlət Agentliyi', '120', NULL, 1, '2021-01-11 18:43:12', '2021-02-15 07:59:15');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title_az` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title_ru` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `text_az` text COLLATE utf8_unicode_ci NOT NULL,
+  `text_ru` text COLLATE utf8_unicode_ci NOT NULL,
+  `short_az` text COLLATE utf8_unicode_ci NOT NULL,
+  `short_ru` text COLLATE utf8_unicode_ci NOT NULL,
+  `location_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `location_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_id` int(11) NOT NULL,
+  `youtube` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `project_date` date DEFAULT NULL,
+  `client` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_title_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_title_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_keywords_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_keywords_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_desctioption_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_desctioption_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `projects`
+--
+
+INSERT INTO `projects` (`id`, `title_az`, `title_ru`, `text_az`, `text_ru`, `short_az`, `short_ru`, `location_az`, `location_ru`, `category_id`, `youtube`, `project_date`, `client`, `seo_title_az`, `seo_title_ru`, `seo_keywords_az`, `seo_keywords_ru`, `seo_desctioption_az`, `seo_desctioption_ru`, `status`, `created_at`, `updated_at`) VALUES
+(9, 'Rooms & Halls AZ', 'Rooms & Halls RU', '<h3 class=\"font-weight-600\">Creating a sustainable future through building preservation, green architecture, and smart design</h3>\r\n<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', '<h3 class=\"font-weight-600\">Creating a sustainable future through building preservation, green architecture, and smart design</h3>\r\n<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', 'Creating a sustainable future through building preservation, green architecture, and smart design\r\nDesigners think everything done by someone else is awful, and that they could do it better themselves', 'Creating a sustainable future through building preservation, green architecture, and smart design\r\nDesigners think everything done by someone else is awful, and that they could do it better themselves', 'My address', 'moy adress', 1, 'youtube link', '2021-01-01', 'Azersu', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-01-21 20:20:26', '2021-01-21 20:31:28'),
+(10, 'To-Do Dashboard', 'To-Do Dashboard', '<h3 class=\"font-weight-600\">Creating a sustainable future through building preservation, green architecture, and smart design</h3>\r\n<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', '<h3 class=\"font-weight-600\">Creating a sustainable future through building preservation, green architecture, and smart design</h3>\r\n<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', 'Creating a sustainable future through building preservation, green architecture, and smart design\r\nDesigners think everything done by someone else is awful, and that they could do it better themselves', 'Creating a sustainable future through building preservation, green architecture, and smart design\r\nDesigners think everything done by someone else is awful, and that they could do it better themselves', 'Ünvan AZ:', 'unvan ru', 2, 'aasdasdas', '2020-12-01', 'Azersu', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-01-21 20:22:14', '2021-01-21 20:31:26'),
+(11, 'WhereTO App', 'WhereTO App', '<h3 class=\"font-weight-600\">Creating a sustainable future through building preservation, green architecture, and smart design</h3>\r\n<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', '<h3 class=\"font-weight-600\">Creating a sustainable future through building preservation, green architecture, and smart design</h3>\r\n<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', 'Creating a sustainable future through building preservation, green architecture, and smart design\r\nDesigners think everything done by someone else is awful, and that they could do it better themselves', 'Creating a sustainable future through building preservation, green architecture, and smart design\r\nDesigners think everything done by someone else is awful, and that they could do it better themselves', 'Ünvan AZ:', 'Ünvan RU:', 3, 'fsdfsdf', '2019-12-01', 'Azersu', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-01-21 20:23:13', '2021-01-21 20:31:24'),
+(12, 'Events and More', 'Events and More', '<h3 class=\"font-weight-600\">Creating a sustainable future through building preservation, green architecture, and smart design</h3>\r\n<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', '<h3 class=\"font-weight-600\">Creating a sustainable future through building preservation, green architecture, and smart design</h3>\r\n<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', 'Creating a sustainable future through building preservation, green architecture, and smart design\r\nDesigners think everything done by someone else is awful, and that they could do it better themselves', 'Creating a sustainable future through building preservation, green architecture, and smart design\r\nDesigners think everything done by someone else is awful, and that they could do it better themselves', 'Ünvan AZ:', 'Ünvan RU:', 3, 'https://www.youtube.com/watch?v=YPhft3iDlw8&ab_channel=MachineryMagazine', '2021-01-15', 'Azer', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-01-21 20:24:15', '2021-01-24 06:31:57');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', '2021-01-11 20:00:00', '2021-01-11 20:00:00'),
+(2, 'User', '2021-01-11 20:00:00', '2021-01-11 20:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `services`
+--
+
+CREATE TABLE `services` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `file_id` int(11) DEFAULT NULL,
+  `title_az` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title_ru` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `text_az` text COLLATE utf8_unicode_ci NOT NULL,
+  `text_ru` text COLLATE utf8_unicode_ci NOT NULL,
+  `short_az` text COLLATE utf8_unicode_ci NOT NULL,
+  `short_ru` text COLLATE utf8_unicode_ci NOT NULL,
+  `seo_title_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_title_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_keywords_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_keywords_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_desctioption_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `seo_desctioption_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `services`
+--
+
+INSERT INTO `services` (`id`, `file_id`, `title_az`, `title_ru`, `text_az`, `text_ru`, `short_az`, `short_ru`, `seo_title_az`, `seo_title_ru`, `seo_keywords_az`, `seo_keywords_ru`, `seo_desctioption_az`, `seo_desctioption_ru`, `status`, `created_at`, `updated_at`) VALUES
+(1, 114, 'Xidmət dəstəyi', 'Техническое обслуживание', '<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', '<p>Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression. The most powerful men have always inspired the architects; the architect has always been influenced by power.</p>\r\n<p>Tincidunt integer euaugue augue nunc elit dolor luctus placerat scelerisque euismod lorem. Utenim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua. Arullamco laboris nisi ut aliquip ex ea commodo. Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elite sit amet justo nunc tempore. Lorem ipsum dolor sit amet consectetur adipiscing elitsed do eiusmod tempor incididunt ut ore magna aliqua.</p>', 'Texniki xidmət dəstəyi və təmir işləri', 'Ремонтные и сервисные работы', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-01-12 18:17:59', '2021-01-28 14:11:37'),
+(2, 112, 'Texnika icarəsi', 'Аренда строительной техники', '<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae ipsa quae ab illo inventore dicta sunt explicabo.</p>\r\n<h4>\"When it comes to your house, don&rsquo;t mess with the rest, trust the best.\"</h4>\r\n<p>Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>\r\n<blockquote class=\"bg-dark text-white author-quote\">\r\n<h4 class=\"m-b0\">We let our quality work and commitment to customer satisfaction be our slogan. quality you deserve and dependability you can count on.</h4>\r\n<div class=\"p-t15  text-white\"><strong class=\"text-primary\">Jessica Mcdade</strong>CONTRACTOR</div>\r\n</blockquote>\r\n<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.</p>\r\n<div class=\"row\">\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog2.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog3.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n</div>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the . Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>', '<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae ipsa quae ab illo inventore dicta sunt explicabo.</p>\r\n<h4>\"When it comes to your house, don’t mess with the rest, trust the best.\"</h4>\r\n<p>Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>\r\n<blockquote class=\"bg-dark text-white author-quote\">\r\n<h4 class=\"m-b0\">We let our quality work and commitment to customer satisfaction be our slogan. quality you deserve and dependability you can count on.</h4>\r\n<div class=\"p-t15  text-white\"><strong class=\"text-primary\">Jessica Mcdade</strong>CONTRACTOR</div>\r\n</blockquote>\r\n<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.</p>\r\n<div class=\"row\">\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog2.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog3.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n</div>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the . Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>', 'Ağır tikinti texnikaları və qaldırıcı qurğuların icarəsi', 'Аренда тяжелой строительной техники и подъемного оборудования', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-01-12 18:28:33', '2021-01-28 13:25:37'),
+(3, 110, 'Avtomobil yollarının tikintisi, yenidən qurulması və təmiri', 'Строительство, реконструкция и ремонт дорог', '<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae ipsa quae ab illo inventore dicta sunt explicabo.</p>\r\n<h4>\"When it comes to your house, don&rsquo;t mess with the rest, trust the best.\"</h4>\r\n<p>Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>\r\n<blockquote class=\"bg-dark text-white author-quote\">\r\n<h4 class=\"m-b0\">We let our quality work and commitment to customer satisfaction be our slogan. quality you deserve and dependability you can count on.</h4>\r\n<div class=\"p-t15  text-white\"><strong class=\"text-primary\">Jessica Mcdade</strong>CONTRACTOR</div>\r\n</blockquote>\r\n<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.</p>\r\n<div class=\"row\">\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog2.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog3.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n</div>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the . Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>', '<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae ipsa quae ab illo inventore dicta sunt explicabo.</p>\r\n<h4>\"When it comes to your house, don’t mess with the rest, trust the best.\"</h4>\r\n<p>Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>\r\n<blockquote class=\"bg-dark text-white author-quote\">\r\n<h4 class=\"m-b0\">We let our quality work and commitment to customer satisfaction be our slogan. quality you deserve and dependability you can count on.</h4>\r\n<div class=\"p-t15  text-white\"><strong class=\"text-primary\">Jessica Mcdade</strong>CONTRACTOR</div>\r\n</blockquote>\r\n<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.</p>\r\n<div class=\"row\">\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog2.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog3.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n</div>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the . Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>', 'Avtomobil yolları, körpülər, tunellər, yeraltı və yerüstü piyada keçidləri, digər yol qurğuların tikintisi və təmiri', 'Строительство и ремонт дорог, мостов, тоннелей, путепроводов и путепроводов, прочего дорожного хозяйства', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-01-12 18:29:14', '2021-01-28 12:59:18'),
+(4, 113, 'Yaşıllaşdırma və landşaft', 'Озеленение и ландшафт', '<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae ipsa quae ab illo inventore dicta sunt explicabo.</p>\r\n<h4>\"When it comes to your house, don&rsquo;t mess with the rest, trust the best.\"</h4>\r\n<p>Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>\r\n<blockquote class=\"bg-dark text-white author-quote\">\r\n<h4 class=\"m-b0\">We let our quality work and commitment to customer satisfaction be our slogan. quality you deserve and dependability you can count on.</h4>\r\n<div class=\"p-t15  text-white\"><strong class=\"text-primary\">Jessica Mcdade</strong>CONTRACTOR</div>\r\n</blockquote>\r\n<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.</p>\r\n<div class=\"row\">\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog2.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog3.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n</div>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the . Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>', '<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae ipsa quae ab illo inventore dicta sunt explicabo.</p>\r\n<h4>\"When it comes to your house, don’t mess with the rest, trust the best.\"</h4>\r\n<p>Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>\r\n<blockquote class=\"bg-dark text-white author-quote\">\r\n<h4 class=\"m-b0\">We let our quality work and commitment to customer satisfaction be our slogan. quality you deserve and dependability you can count on.</h4>\r\n<div class=\"p-t15  text-white\"><strong class=\"text-primary\">Jessica Mcdade</strong>CONTRACTOR</div>\r\n</blockquote>\r\n<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.</p>\r\n<div class=\"row\">\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog2.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog3.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n</div>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the . Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>', 'Ətraf mühitin yaşıllaşdırılması və landşaft', 'Ландшафтный дизайн и озеленение', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-01-12 18:30:22', '2021-01-28 13:46:37'),
+(5, 109, 'Tikinti, quraşdırma və təmir-tikinti', 'Строительство, монтаж и ремонтно-строительные работы', '<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae ipsa quae ab illo inventore dicta sunt explicabo.</p>\r\n<h4>\"When it comes to your house, don&rsquo;t mess with the rest, trust the best.\"</h4>\r\n<p>Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>\r\n<blockquote class=\"bg-dark text-white author-quote\">\r\n<h4 class=\"m-b0\">We let our quality work and commitment to customer satisfaction be our slogan. quality you deserve and dependability you can count on.</h4>\r\n<div class=\"p-t15  text-white\"><strong class=\"text-primary\">Jessica Mcdade</strong>CONTRACTOR</div>\r\n</blockquote>\r\n<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.</p>\r\n<div class=\"row\">\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog2.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog3.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n</div>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the . Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>', '<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae ipsa quae ab illo inventore dicta sunt explicabo.</p>\r\n<h4>\"When it comes to your house, don’t mess with the rest, trust the best.\"</h4>\r\n<p>Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>\r\n<blockquote class=\"bg-dark text-white author-quote\">\r\n<h4 class=\"m-b0\">We let our quality work and commitment to customer satisfaction be our slogan. quality you deserve and dependability you can count on.</h4>\r\n<div class=\"p-t15  text-white\"><strong class=\"text-primary\">Jessica Mcdade</strong>CONTRACTOR</div>\r\n</blockquote>\r\n<p>Duis vestibulum quis quam vel accumsan. Nunc a vulputate lectus. Vestibulum eleifend nisl sed massa sagittis vestibulum. Vestibulum pretium blandit tellus, sodales volutpat sapien varius vel. Phasellus tristique cursus erat, a placerat tellus laoreet eget. Fusce vitae dui sit amet lacus rutrum convallis. Vivamus sit amet lectus venenatis est rhoncus interdum a vitae velit.</p>\r\n<div class=\"row\">\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog2.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n<div class=\"col-md-4 col-sm-4\">\r\n<div class=\"mt-box m-b30\">\r\n<div class=\"mt-media\"><img src=\"http://7xtheme.com/shapen/images/blog/large-blog3.jpg\" alt=\"\" /></div>\r\n</div>\r\n</div>\r\n</div>\r\n<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in the with the . Proin tincidunt tellus ac porta volutpat. Cras mattis congue lacus id bibendum. Mauris ut sodales libero. Maecenas feugiat sit amet enim in accumsan. Here, then, is what I wanted to tell you of my architecture. I created it with courage and idealism, but also with an awareness of the fact that what is important is life, friends, and attempting to make this unjust world a better place in which to live.</p>', 'Xüsusi sənaye və mülki binaların tikintisi və təmiri', 'Строительство и ремонт специальных промышленных и гражданских зданий', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-01-12 18:31:04', '2021-01-28 12:48:20');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `small_title_az` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `small_title_ru` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `small_title_en` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `file_id` int(11) NOT NULL,
+  `title_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_en` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `text_az` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `text_ru` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `text_en` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `role_id` int(11) NOT NULL DEFAULT '1',
+  `is_active` int(11) NOT NULL DEFAULT '1',
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `role_id`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Orkhan Bagirli', 'orkhan', 'orik.ws@gmail.com', 1, 1, NULL, '$2y$10$pt3qtU4UXaOWeWkwE14FTuDWeQjSe0TYn245LlYix79G8Ifwny/Py', 'cftwFOqAEdw8Hlb9LDxgdAefWKI9cpTc5mYGNU5n7n2SD4Fne4yMS0KyAFmS', '2021-01-11 18:15:06', '2021-01-11 18:15:06');
+
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `abouts`
+--
+ALTER TABLE `abouts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `files`
+--
+ALTER TABLE `files`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `gallery_categories`
+--
+ALTER TABLE `gallery_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `partners`
+--
+ALTER TABLE `partners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Индексы таблицы `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `sliders`
+--
+ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_username_unique` (`username`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `abouts`
+--
+ALTER TABLE `abouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблицы `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `files`
+--
+ALTER TABLE `files`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+
+--
+-- AUTO_INCREMENT для таблицы `gallery_categories`
+--
+ALTER TABLE `gallery_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT для таблицы `partners`
+--
+ALTER TABLE `partners`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблицы `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT для таблицы `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблицы `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

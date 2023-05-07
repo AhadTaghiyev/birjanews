@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+.no-border{
+	border-top:none !important;
+}
+
+.table td, .table th {
+	padding: .75rem;
+	vertical-align: top;
+	border-top: 1px solid #479c98;
+}
+
+.table thead th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #479c98;
+}
+
+body {
+	background: #d0d0d0;
+}
+
+.card-header {
+	padding: .75rem 1.25rem;
+	margin-bottom: 0;
+	background-color:#479c98;
+	border-bottom:1px solid #479c98;
+	color: white;
+}
+
+.bg-white {
+	background-color: #47819c!important;
+}
+
+.navbar-light .navbar-brand {
+	color: rgb(255, 255, 255);
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: rgb(255, 255, 255);
+}
+
+.mrg-65{
+	margin-bottom: 65px;
+}
+
+.margin-left-5{
+	margin-left: 5px;
+}
+
+.bg-color-white{
+	background-color: #ffffff!important;
+
+}
+
+.sidebar-dark #sidebarToggle:hover {
+	background-color: rgb(71, 156, 152);
+}
+
+.custom-box{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 160px;
+	height: 1.4em;
+	white-space: nowrap;
+}
+
+.pull-right{
+	float: right;
+}
+
+.pull-left{
+	float: left !important;
+}
+.margin-bottom-20{
+	margin-bottom: 20px;
+}
+
+.margin-right-5{
+	margin-right: 5px;
+}
+
+.wrap-text{
+    width: 199px;
+    white-space: pre-wrap !important;
+}
+
+.image-box-admin{
+	border: 1px solid #c5c5c5;
+	padding: 20px;
+	margin: 10px 0px;
+}
+
+.admin-btn-back {
+	margin-bottom: 20px;
+}
+
+label{
+    color: #4e73df;
+    font-weight: 600;
+}
+
+.box_admin_border{
+    border-left: 1px solid #d1d3e2;
+    border-right: 1px solid #d1d3e2;
+    border-bottom: 1px solid #d1d3e2;
+    padding: 10px;
+}
+
+.label_style{
+    color: #4e73df;
+    font-weight: 600;
+}
+
+.sidebar-brand-text.mx-1 {
+    font-size: 0.8rem;
+}
+
+.origin{
+    display: none;
+}
+
+.filelabel{
+    margin-right: 55px;
+}
+
+.pic_box{
+    border: 1px solid #d1d3e2;
+    padding: 10px;
+    margin: 10px 0px;
+}
+
+.custom_gallery_photos {
+    border: 1px solid #d1d3e2;
+    float: left;
+    margin: 5px 0px;
+    padding: 5px;
+    min-height: 80px;
+}
+
+
+.custom-inline{
+    display: inline;
+}
+
+.custom-size{
+    width: 100%;
+    max-width: 120px;
+    object-fit: cover;
+    height: 70px;
+    max-height: 70px;
+}
+
+
+.img-custom-size{
+    height: 70px;
+    max-width: 120px;
+}
+
+.delete_img {
+    position: absolute;
+    margin-left: -20px;
+    color: white;
+    background: red;
+    padding: 0px !important;
+    line-height: 1;
+}
+
+.delete_img:hover{
+    color: #ff0000;
+    background: white;
+    text-decoration: none;
+}
+
+.custm-btn-delete {
+    position: absolute;
+    margin-left: -72px;
+    margin-top: 46px;
+    color: white;
+    background-color: red;
+    padding: 0.3rem;
+    line-height: 1;
+}
+
+.fileDiv {
+    border: 1px solid #d1d3e2;
+    padding: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 45px;
+}
+
+.custm-btn-delete:hover{
+    color: red;
+    background: white;
+    border: 1px solid red;
+}
+
+.mrg-b-5{
+    margin-bottom: 5px;
+}

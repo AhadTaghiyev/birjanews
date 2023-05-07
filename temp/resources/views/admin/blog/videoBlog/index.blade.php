@@ -1,0 +1,153 @@
+@extends('layouts.admin')
+
+@section('content')
+    @include('includes.timyeditor')
+
+    <div class="col-sm-1"> </div>
+
+    <div class="col-sm-10">
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h5 class="m-0 font-weight-bold text-white">Video Blog</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#seo" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            SEO tools
+                        </a>
+                        <br />
+                        <div class="collapse" id="seo">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#seo_az">AZ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#seo_ru">RU</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#seo_en">EN</a>
+                                </li>
+                            </ul>
+                            {!! Form::model($blogsSeo, ['method'=>'PATCH', 'action'=>['AdminVideoBlogsSeoController@update', $blogsSeo[0]->id] ]) !!}
+                            <div class="tab-content">
+                                <div id="seo_az" class="tab-pane active">
+                                    <div class="form-group">
+                                        {!! Form::label('seo_title_az', 'SEO Title AZ:') !!}
+                                        {!! Form::text('seo_title_az', $blogsSeo[0]->seo_title_az, ['class' => ($errors->has('seo_title_az')) ? 'form-control form-error' : 'form-control']) !!}
+                                        <small class="text-danger">{{ $errors->first('seo_title_az') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::label('seo_keywords_az', 'SEO Keywords AZ:') !!}
+                                        {!! Form::text('seo_keywords_az', $blogsSeo[0]->seo_keywords_az, ['class' => ($errors->has('seo_keywords_az')) ? 'form-control form-error' : 'form-control']) !!}
+                                        <small class="text-danger">{{ $errors->first('seo_keywords_az') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::label('seo_desctioption_az', 'SEO Description AZ:') !!}
+                                        {!! Form::text('seo_desctioption_az', $blogsSeo[0]->seo_desctioption_az, ['class' => ($errors->has('seo_desctioption_az')) ? 'form-control form-error' : 'form-control']) !!}
+                                        <small class="text-danger">{{ $errors->first('seo_desctioption_az') }}</small>
+                                    </div>
+                                </div>
+                                <div id="seo_ru" class="tab-pane fade">
+                                    <div class="form-group">
+                                        {!! Form::label('seo_title_ru', 'SEO Title RU:') !!}
+                                        {!! Form::text('seo_title_ru', $blogsSeo[0]->seo_title_ru, ['class' => ($errors->has('seo_title_ru')) ? 'form-control form-error' : 'form-control']) !!}
+                                        <small class="text-danger">{{ $errors->first('seo_title_ru') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::label('seo_keywords_ru', 'SEO Keywords RU:') !!}
+                                        {!! Form::text('seo_keywords_ru', $blogsSeo[0]->seo_keywords_ru, ['class' => ($errors->has('seo_keywords_ru')) ? 'form-control form-error' : 'form-control']) !!}
+                                        <small class="text-danger">{{ $errors->first('seo_keywords_ru') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::label('seo_desctioption_ru', 'SEO Description RU:') !!}
+                                        {!! Form::text('seo_desctioption_ru', $blogsSeo[0]->seo_desctioption_ru, ['class' => ($errors->has('seo_desctioption_ru')) ? 'form-control form-error' : 'form-control']) !!}
+                                        <small class="text-danger">{{ $errors->first('seo_desctioption_ru') }}</small>
+                                    </div>
+                                </div>
+                                <div id="seo_en" class="tab-pane fade">
+                                    <div class="form-group">
+                                        {!! Form::label('seo_title_en', 'SEO Title EN:') !!}
+                                        {!! Form::text('seo_title_en', $blogsSeo[0]->seo_title_en, ['class' => ($errors->has('seo_title_en')) ? 'form-control form-error' : 'form-control']) !!}
+                                        <small class="text-danger">{{ $errors->first('seo_title_en') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::label('seo_keywords_en', 'SEO Keywords EN:') !!}
+                                        {!! Form::text('seo_keywords_en', $blogsSeo[0]->seo_keywords_en, ['class' => ($errors->has('seo_keywords_en')) ? 'form-control form-error' : 'form-control']) !!}
+                                        <small class="text-danger">{{ $errors->first('seo_keywords_en') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::label('seo_desctioption_en', 'SEO Description EN:') !!}
+                                        {!! Form::text('seo_desctioption_en', $blogsSeo[0]->seo_desctioption_en, ['class' => ($errors->has('seo_desctioption_en')) ? 'form-control form-error' : 'form-control']) !!}
+                                        <small class="text-danger">{{ $errors->first('seo_desctioption_en') }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="text-align: right;">
+                                <div class="form-group">
+                                    {!!  Form::submit('Yenilə', ['class'=>'btn btn-primary col-sm-2']) !!}
+                                </div>
+                            </div>
+                            {!! Form::close()!!}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="{{route('admin.blog.videoBlog.create')}}" class="pull-right margin-bottom-20"><button type="button" class="btn btn-primary">Video Blog Yarat</button></a>
+                    </div>
+                </div>
+                <table id="blogtable" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Başlıq</th>
+                        <th>Şəkil</th>
+                        <th>Status</th>
+                        <th>Yaradılıb</th>
+                        <th>Yenilənib</th>
+                        <th>Əməliyyat</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if($blogs)
+                        @foreach($blogs as $blog)
+                            <tr>
+                                <td><a href="{{route('admin.blog.videoBlog.edit', $blog->id)}}">{{$blog->id}}</a></td>
+                                <td>{{$blog->title_az}}</td>
+                                <td><img src="{{asset('files/img/blog/'.$blog->photo->file)}}" height="50px"></td>
+                                <td>{{$blog->status == 1 ? "Aktiv" : "Passiv"}}</td>
+                                <td>{{$blog->created_at->diffForHumans()}}</td>
+                                <td>{{$blog->updated_at->diffForHumans()}}</td>
+                                <td>
+                                    <div class="row">
+                                        <a href="{{route('admin.blog.videoBlog.edit', $blog->id)}}" class="btn btn-primary margin-right-5"><i class="fas fa-edit"></i> Dəyiş</a>
+
+                                        {!! Form::open(['method'=>'DELETE', 'action'=>['AdminBlogVideoController@destroy', $blog->id]]) !!}
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Əminsiniz?')"><i class="fas fa-trash-alt"></i> Sil</button>
+                                        {!! Form::close()!!}
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+@stop
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#blogtable').DataTable({
+        "order": [[ 0, "desc" ]]
+    });
+        } );
+    </script>
+@stop

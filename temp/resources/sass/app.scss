@@ -1,0 +1,35 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//colors
+$black_66: rgba(0, 0, 0, 0.27);
+
+//urls
+$url_0: url(../files/others/login_bckgrnd.jpg);
+
+body.body_cover {
+    background: url(/images/login_bckgrnd.jpg) rgba(0, 0, 0, 0.27)no-repeat center center fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.my_nav{
+    background-image: linear-gradient(#1a1a1a 10%, rgb(173 175 179 / 28%) 100%);
+}
+
+.navbar-light .navbar-brand{
+    color: white;
+    text-shadow: 0px 0px 5px black;
+}
+
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: rgb(145 255 109 / 90%);
+    text-shadow: 0px 0px 5px black;
+}
